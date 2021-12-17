@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpenDoor : MonoBehaviour
 {
     private int keys = 0;
     public static int TotalKeys = 1;
-    public static bool DoorOpen = false; 
+    public static bool DoorOpen = false;
     private GameObject Door;
+    public int score = 0;
 
     public static int GetTotalKeys()
     {
@@ -34,6 +36,7 @@ public class OpenDoor : MonoBehaviour
         {
             Destroy(other.gameObject); //destroys that key
             keys++; //adds one to keys
+            score += 10;
         }
 
         if (keys == TotalKeys) //if you collect the total keys
